@@ -1,0 +1,54 @@
+SELECT
+    DATE(timestamp) AS date,
+    SUM(vehicle_count) AS total_vehicles
+FROM
+    trafficdata
+GROUP BY
+    DATE(timestamp)
+ORDER BY
+    date;
+
+
+SELECT
+    HOUR(timestamp) AS hour,
+    AVG(vehicle_count) AS avg_vehicle_count
+FROM
+    trafficdata
+GROUP BY
+    HOUR(timestamp)
+ORDER BY
+    hour;
+
+
+SELECT 
+    intersection_name, 
+    AVG(average_speed) AS avg_speed
+FROM 
+    TrafficData
+GROUP BY 
+    intersection_name
+ORDER BY 
+    intersection_name;
+
+
+
+
+SELECT intersection_name
+FROM trafficdata
+GROUP BY intersection_name
+ORDER BY AVG(vehicle_count) DESC
+LIMIT 1;
+
+
+
+
+SELECT *
+FROM trafficdata
+WHERE weather_condition IN ('Light Rain', 'Heavy Rain');
+
+
+SELECT *
+FROM TrafficData
+WHERE day_of_week = 'Saturday' OR day_of_week = 'Sunday'
+
+
